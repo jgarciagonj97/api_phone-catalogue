@@ -7,13 +7,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
+const PORT = process.env.PORT || 3000;
+
 //ROUTES
 const phoneRouter = require('./routes/phone.routes');
 
 //EXPRESS CREATION
 const app = express();
 
-//DATABBASE CONFIG
+//DATABASE CONFIG
 require('./config/db.js');
 
 // // view engine setup
@@ -28,6 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', phoneRouter);
+
+app.listen(PORT, console.log(`Server is listening on port ${PORT}`));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
