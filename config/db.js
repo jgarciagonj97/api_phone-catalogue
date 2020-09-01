@@ -5,4 +5,4 @@ const DB_URI = process.env.DB_URI || 'mongodb+srv://jgarciagonj:gd1234@phonesclu
 //Database connection
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log(`Successful connection to database ${DB_URI}`))
-    .catch((err) => console.log(`It may has been aproblem connecting ${DB_URI}`, err));
+    .catch((err) => console.log(`It may has been a problem connecting ${DB_URI}`, err));
