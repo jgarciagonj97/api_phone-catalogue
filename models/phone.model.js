@@ -24,7 +24,7 @@ const phoneSchema = new Schema({
         type: Number,
         required: true
     },
-    images: {
+    imageFileName: {
         type: String,
         required: true
     },
@@ -41,8 +41,8 @@ const phoneSchema = new Schema({
         required: true
     }
 
-})
+});
 
-const Phone = mongoose.model('Phone', phoneSchema)
+const Phone = mongoose.model('Phone', phoneSchema);
 
-module.exports = Phone
+module.exports = Phone;
