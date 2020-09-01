@@ -6,13 +6,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-//Routes
+//ROUTES
 const phoneRouter = require('./routes/phone.routes');
 
-//Express creation
+//EXPRESS CREATION
 const app = express();
 
-//Database config
+//DATABBASE CONFIG
 require('./config/db.js');
 
 // // view engine setup
@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api/catalogue', phoneRouter);
+app.use('/api', phoneRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

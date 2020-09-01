@@ -1,15 +1,21 @@
 const router = require('express').Router();
 const Phone = require('../models/phone.model');
+const { insertPhone, getAll, getPhoneById } = require('../controllers/phones.controller');
 
-router.post('/new', async (req, res) => {
-    await Phone.create(req.body)
-        .then(() => {
-            console.log('New phone added to database');
-            res.json(req.body);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-});
+/**
+ * INSERT PHONES TO DATABASE
+ */
+router.post('/new', insertPhone);
+
+/**
+ * GET ALL PHONES
+ */
+router.get('/phones', getAll);
+
+/**
+ * GET PHONE BY ID
+ */
+router.get('/:id', getPhoneById);
+
 
 module.exports = router;
